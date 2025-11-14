@@ -61,6 +61,28 @@ const port: number = parseInt(process.env.PORT as string) || 3000;
 const router = express.Router();
 
 router.use(express.json());
+
+// --- DB connection test endpoint ---
+router.get('/db-test', async (_req: Request, res: Response): Promise<void> => {
+    try {
+        // simple query to verify the DB connection
+        const result = await db.one('SELECT NOW()');
+        res.json({
+            success: true,
+            message: 'Database connected!',
+            time: result.now
+        });
+    } catch (err) {
+        const message = err instanceof Error ? err.message : String(err);
+        res.json({
+            success: false,
+            message: 'Database NOT connected',
+            error: message
+        });
+    }
+});
+// --- end DB test endpoint ---
+
 router.get('/', readHello);
 router.get('/players', readPlayers);
 router.get('/players/:id', readPlayer);
