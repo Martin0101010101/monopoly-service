@@ -1,16 +1,19 @@
 # CS 262 Monopoly Web Service
 
 This is the data service application for the
-[CS 262 sample Monopoly project](https://github.com/calvin-cs262-organization/monopoly-project),
+[CS 262 sample Monopoly project](https://github.com/Martin0101010101/monopoly-service),
  which is deployed here:
 
-- <https://cs262-egbefbd4aae2h0df.canadacentral-01.azurewebsites.net><br>(This URL may vary from year to year.)
+- <https://cs262-monopoly-data-service-cza8d9drgzbchcff.westus3-01.azurewebsites.net><br>(This URL may vary from year to year.)
 
 Based on this URL, the service implements the following endpoints:
 
 - `/` &mdash; a hello message
 - `/players` &mdash; the full list of players
 - `/players/:id` &mdash; the single player with the given ID (e.g., `/players/1`)
+- `/games` &mdash; the full list of games
+- `/games/:id` &mdash; the list of players for the game with the given ID
+- `DELETE /games/:id` &mdash; deletes the game with the given ID
 
 Also, it gives the following responses:
 
